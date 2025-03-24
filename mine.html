@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" href="books.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="genre.html">Genre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Your Book Haven</h2>
+            <p>Explore a world of stories, knowledge, and imagination.</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </section>
+
+    <section class="genres">
+        <h2>Book Recommendations</h2>
+        <div class="button-group">
+            <a href="fiction.html"><button class="btn1">Fiction</button></a>
+            <a href="horror.html"><button class="btn1">Horror</button></a>
+            <a href="scifi.html"><button class="btn1">Sci-Fi</button></a>
+            <a href="selfcare.html"><button class="btn1">Self-care</button></a>
+        </div>
+    </section>
+
+    <section class="book-grid">
+        <article class="book-section">
+            <h3>Ikigai by Héctor García and Francesc Miralles</h3>
+            <img src="ikigai.webp" alt="Ikigai Book Cover" class="book-img">
+            <p>Description: Everyone has an ikigai, or a reason for living. Japanese villagers with the world’s longest-living people believe that having an ikigai is essential to living a happier and longer life...</p>
+            <p class="rating">Rating: ★★★★☆</p>
+        </article>
+
+        <article class="book-section">
+            <h3>Happy Not Perfect by Poppy Jamie</h3>
+            <img src="happy.jpg" alt="Happy Not Perfect Book Cover" class="book-img">
+            <p>Description: Discover a clear path to overcoming uncertainty, perfectionism, and fears of rejection so you can finally find peace with the past and create a happier, healthier future.</p>
+            <p class="rating">Rating: ★★★★★</p>
+        </article>
+
+        <article class="book-section">
+            <h3>Atomic Habits by James Clear</h3>
+            <img src="atomic.webp" alt="Atomic Habits Book Cover" class="book-img">
+            <p>Description: Atomic Habits is a practical guide on how to change your habits and get 1% better every day. It teaches simple rules for creating good habits and breaking bad ones.</p>
+            <p class="rating">Rating: ★★★★★</p>
+        </article>
+
+        <article class="book-section">
+            <h3>The Psychology of Money by Morgan Housel</h3>
+            <img src="money.jpg" alt="The Psychology of Money Book Cover" class="book-img">
+            <p>Description: This collection of short stories explores the strange ways people think about money, showing how one's psychology can work for and against them.</p>
+            <p class="rating">Rating: ★★★★★</p>
+        </article>
+    </section>
+
+    <section class="book-grid">
+    
+            <form action="#" method="POST" class="rating-form">
+                <fieldset>
+                    <legend>Submit Your Review</legend>
+                    
+                    <label for="user-name">Your Name:</label>
+                    <input type="text" id="user-name" name="user-name" placeholder="Enter your name" required>
+    
+                    <label for="user-email">Your Email:</label>
+                    <input type="email" id="user-email" name="user-email" placeholder="Enter your email" required>
+    
+                    <label for="book-name">Book Name:</label>
+                    <input type="text" id="book-name" name="book-name" placeholder="Enter the book name" required>
+    
+                    <label for="rating">Rating (1 to 5 stars):</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star1" name="rating" value="5"><label>★</label>
+                        <input type="radio" id="star1" name="rating" value="4"><label>★</label>
+                        <input type="radio" id="star1" name="rating" value="3"><label>★</label>
+                        <input type="radio" id="star1" name="rating" value="2"><label>★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label>★</label>
+                    </div>
+                    
+    
+                    <label for="review">Your Review (optional):</label>
+                    <textarea id="review" name="review" placeholder="Write your review here..." rows="3" cols="10"></textarea>
+    
+                    <button type="submit" class="btn">Submit Review</button>
+                </fieldset>
+            </form>
+        </article>
+    </section>
+    
+    <footer>
+        <ul class="foot">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="mailto:email@example.com">Email</a></li>
+        </ul>
+        <p>&copy; Riyashini 2025. All rights reserved</p>
+    </footer>
+</body>
+</html>

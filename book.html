@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book recommendation</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+       
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        /* Hero section */
+        .hero {
+            background-color: #3498db;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Featured book */
+        .featured-book {
+            background-color: white;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: -3rem auto 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .featured-book h2 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-book-content {
+            display: flex;
+            align-items:start;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .featured-book-image {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            align-items:flex-start;
+        }
+        
+        .featured-book-details {
+            max-width: 500px;
+            text-align: left;
+        }
+        
+        .featured-book-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .featured-book-author {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-book-description {
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-tag {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Recommendations section */
+        .recommendations {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .book-image {
+            height: 300px;
+            background-color: #ddd;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-author {
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .book-genre {
+            display: inline-block;
+            background-color: #ecf0f1;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        /* Categories section */
+        .categories {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem 1rem;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links li {
+                margin-left: 1rem;
+            }
+            
+            .featured-book {
+                margin: -2rem 1rem 2rem;
+            }
+            
+            .featured-book-content {
+                flex-direction: column;
+            }
+            
+            .featured-book-details {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <nav>
+            
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Favorite Book</h1>
+            <p>Curated recommendations for every reader</p>
+        </div>
+    </section>
+    
+    <!-- Featured book section -->
+    <section class="featured-book">
+       
+        <h2>Featured This Month</h2>
+        <div class="featured-book-content"><img src="midnight.jpg">
+            <div class="featured-book-image"></div>
+            <div class="featured-book-details">
+                <h3 class="featured-book-title">The Midnight Library</h3>
+                <p class="featured-book-author">by Matt Haig</p>
+                <p class="featured-book-description">Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices... Would you have done anything different, if you had the chance to undo your regrets?</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recommendations section -->
+    <section class="recommendations">
+        <h2 class="section-title">Recommended Books</h2>
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <h3 class="book-title">Project Hail Mary</h3>
+                    <p class="book-author">by Andy Weir</p>
+                    <span class="book-genre">Science Fiction</span>
+                </div>
+            </div>
+            
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <h3 class="book-title">Klara and the Sun</h3>
+                    <p class="book-author">by Kazuo Ishiguro</p>
+                    <span class="book-genre">Literary Fiction</span>
+                </div>
+            </div>
+            
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <h3 class="book-title">The Song of Achilles</h3>
+                    <p class="book-author">by Madeline Miller</p>
+                    <span class="book-genre">Historical Fiction</span>
+                </div>
+            </div>
+            
+            <!-- Book 4 -->
+            <div class="book-card">
+                <div class="book-image"></div>
+                <div class="book-info">
+                    <h3 class="book-title">Educated</h3>
+                    <p class="book-author">by Tara Westover</p>
+                    <span class="book-genre">Memoir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories section -->
+    <section class="categories">
+        <h2 class="section-title">Browse by Category</h2>
+        <div class="categories-grid">
+            <div class="card">Fiction</div>
+            <div class="card">Non-Fiction</div>
+            <div class="card">Mystery</div>
+            <div class="card">Science Fiction</div>
+            <div class="card">Fantasy</div>
+            <div class="card">Biography</div>
+        </div>
+    </section>
+    
+    
+    <footer>
+        <div class="footer-content">
+           
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p class="copyright">© 2025. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
